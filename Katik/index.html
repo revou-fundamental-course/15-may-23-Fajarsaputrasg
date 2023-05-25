@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KATIK kalkulator Matematik</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .navbar {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .square {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      margin: 20px 0;
+      border: 2px solid red;
+    }
+
+    .corner-label {
+      position: absolute;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .top-left {
+      top: 5px;
+      left: 5px;
+    }
+
+    .top-right {
+      top: 5px;
+      right: 5px;
+    }
+
+    .bottom-left {
+      bottom: 5px;
+      left: 5px;
+    }
+
+    .bottom-right {
+      bottom: 5px;
+      right: 5px;
+    }
+
+    h1 {
+      margin-top: 200px;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="number"] {
+      padding: 5px;
+      width: 100%;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .reset-button {
+      background-color: #ffc107;
+    }
+
+    p {
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    // Function to calculate the area of a square
+    function calculateArea() {
+      var sisi = document.getElementById("sisi-luas").value; // Get the input value
+      var luas = sisi * sisi; // Calculate the area
+      document.getElementById("output_luas").innerHTML = "Luas: " + luas; // Display the result
+    }
+
+    // Function to calculate the perimeter of a square
+    function calculatePerimeter() {
+      var sisi = document.getElementById("sisi-keliling").value; // Get the input value
+      var keliling = 4 * sisi; // Calculate the perimeter
+      document.getElementById("output_keliling").innerHTML = "Keliling: " + keliling; // Display the result
+    }
+
+    // Function to reset the input fields and outputs
+    function reset() {
+      document.getElementById("sisi-luas").value = "";
+      document.getElementById("sisi-keliling").value = "";
+      document.getElementById("output_luas").innerHTML = "";
+      document.getElementById("output_keliling").innerHTML = "";
+    }
+  </script>
+</head>
+<body>
+  <div class="navbar">
+    <h2>KATIK Kalkulator Matematik</h2>
+  </div>
+  <p class="lead"></p>
+  <figure>
+  <blockquote class="blockquote">
+    <h3>Welcome to Katik</h3>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+    Sebuah web apps sederhana untuk menghitung luas persegi
+  </figcaption>
+</figure>
+  
+  
+  <div class="container">
+    <div class="square">
+      <span class="corner-label top-left">A</span>
+      <span class="corner-label top-right">B</span>
+      <span class="corner-label bottom-left">C</span>
+      <span class="corner-label bottom-right">D</span>
+    </div>
+
+    <h3>Hitung Luas</h3>
+    <form>
+      <label for="sisi-luas">Sisi:</label>
+      <input type="number" id="sisi-luas" min="0">
+      <button type="button" onclick="calculateArea()">Hitung</button>
+    </form>
+    <p id="output_luas"></p>
+
+    <h3>Hitung Keliling</h3>
+    <form>
+      <label for="sisi-keliling">Sisi:</label>
+      <input type="number" id="sisi-keliling" min="0">
+      <button type="button" onclick="calculatePerimeter()">Hitung</button>
+    </form>
+    <p id="output_keliling"></p>
+
+    <button class="reset-button" onclick="reset()">Reset</button>
+  </div>
+</body>
+</html>
